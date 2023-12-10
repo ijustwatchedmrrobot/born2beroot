@@ -29,15 +29,15 @@ sudo ufw allow ssh
 sudo ufw allow 4242
 sudo ufw status numbered
 sudo ufw delete <rule_number>
+ssh sozdamar@127.0.0.1 -p 4242 (ana makine terminalinden sanal makineye bağlan)
+logout/exit (çıkış yap)
 
+hostnamectl
+hostnamectl set-hostname server1 (makine adını değiştir)
+vim /etc/hosts (adı değiştir)
 
-
-
-
-
-
-
-
-
+SUDO
+sudo vim /etc/sudoers
+(parola değişiklikleri sudo için)
 sources:
 https://rphlr.github.io/42-Evals/
