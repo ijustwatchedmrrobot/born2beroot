@@ -2,10 +2,20 @@ lsblk (list block devices)
 apt upgrade
 apt update 
 apt install sudo (install sudo)
+apt install vim (install vim)
+apt install git (install git)
+apt-get install wget
+apt install zsh -y 
+apt install ssh
 
 adduser username sudo
+getent group sudo(grupları görme)
+vim /etc/sudoers (sudo yetkisi ver)
+sozdamar	ALL=(ALL:ALL) ALL
+sudo -v (sudo yetkisini al)
 
-getent group sudo
+dpkg -l | grep ssh (dpkg -l (debian paket yöneticisi), grep ssh(ssh'ı bul))
+sudo sytemctl status ssh 
 
 
 
