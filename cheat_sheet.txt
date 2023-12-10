@@ -15,6 +15,7 @@ getent group sudo(grupları görme)
 vim /etc/sudoers (sudo yetkisi ver)
 sozdamar	ALL=(ALL:ALL) ALL
 sudo -v (sudo yetkisini al)
+compgen -u (bütün kullanıcıları gör)
 
 SSH
 dpkg -l | grep ssh (dpkg -l (debian paket yöneticisi), grep ssh(ssh'ı bul))
@@ -39,5 +40,9 @@ vim /etc/hosts (adı değiştir)
 SUDO
 sudo vim /etc/sudoers
 (parola değişiklikleri sudo için)
+
+PASSWORD
+sudo vim /etc/login.defs (min-max ayarlama)
+
 sources:
 https://rphlr.github.io/42-Evals/
