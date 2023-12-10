@@ -6,3 +6,15 @@ apt install sudo (install sudo)
 adduser username sudo
 
 getent group sudo
+
+
+
+
+
+
+
+
+
+
+sources:
+https://rphlr.github.io/42-Evals/
