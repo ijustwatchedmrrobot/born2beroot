@@ -16,6 +16,7 @@ vim /etc/sudoers (sudo yetkisi ver)
 sozdamar	ALL=(ALL:ALL) ALL
 sudo -v (sudo yetkisini al)
 compgen -u (bütün kullanıcıları gör)
+sudo deluser --remove-all-files user (kullanıcıyı ve ilgili tüm dosyaları sil)
 
 SSH
 dpkg -l | grep ssh (dpkg -l (debian paket yöneticisi), grep ssh(ssh'ı bul))
@@ -40,9 +41,17 @@ vim /etc/hosts (adı değiştir)
 SUDO
 sudo vim /etc/sudoers
 (parola değişiklikleri sudo için)
+id user (kullanıcıyı kontrol eder)
+
 
 PASSWORD
 sudo vim /etc/login.defs (min-max ayarlama)
+chage -l user (kullanıcının şifre ayarlarını kontrol eder)
+sudo chage --mindays/maxdays/warndays num user (ayar değiştirir)
+libpam-pwquality (parola paketinin ismi)
+sudo vim /etc/pam.d/common-password (şifre ayarları dosyası)
+sudo passwd (şifre değiştir)
+sudo passwd user (user şifre değiştir)
 
 sources:
 https://rphlr.github.io/42-Evals/
