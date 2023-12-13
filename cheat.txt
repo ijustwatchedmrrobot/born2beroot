@@ -1,43 +1,61 @@
 SIMPLE SETUP
-chage -l <username> - Checks if passwords rules are working on the user.
 sudo ufw status - Checks the ufw status.
 sudo service ssh status - Checks the status of the ssh.
 uname -a - Checks the operating system.
 head -n 2 /etc/os-release - Also checks the operating system.
 
+APT
+apt update -y
+apt upgrade -y
+apt install sudo, vim, git, zsh, ssh, ufw, libpam-pwquality
+apt-get sintall wget
+
 USER
 getent group - Checks the groups created.
 getent group <groupname> - Checks the users under a group.
+compgen -u - List all groups
 sudo adduser <username> - Creates a new user.
-sudo /etc/pam.d/common-password - To set the length of the password, the characters...
-sudo nano /etc/login.defs - To set password expiration date, etc.
 sudo addgroup <groupname> - Creates a new group.
 sudo adduser <username> <groupname> - Adds a user to a group.
+sudo deluser <username> - Delete user (--remove-al-files, delete all the files related to the user.)
+id user - Check user.
+
+PASSWORD
+sudo vim /etc/login.defs - Set min-max values.
+chage -l <username> - Check the password rules for user.
+sudo chage --mindays/maxdays/warndays <num> <userneme> - Set min-max values.
+libpam-pwquality (parola paketinin ismi)
+sudo vim /etc/pam.d/common-password - Change the password rules.
+sudo passwd <username> - Change the password of user. (root if empty)
 
 HOSTNAME AND PARTITIONS
 hostname - Check current hostname.
 sudo hostnamectl set-hostname <newhostname> - Changes the hostname.
-sudo nano /etc/hosts - And then change the old hostname for the new one.
+sudo vim /etc/hosts - And then change the old hostname for the new one.
 lsblk - See the partitions.
 
 SUDO
 command -v sudo - To check if sudo is installed.
 sudo adduser <username> sudo - Adds the user to the sudo group.
-sudo visudo - Access sudoers file to edit the configuration of sudo.
+sudo vim /etc/sudoers - Access sudoers file to edit the configuration of sudo.
+sudo -v - Get sudo access
 
 UFW
 command -v ufw - To check if ufw is installed.
 sudo ufw status - Checks the ufw status.
-sudo ufw allow <port_number> - Allows the port indicated.
+sudo ufw enable
+sudo ufw allow <port_number>/ssh - Allows the port indicated / Allows ssh.
 sudo ufw status numbered - Checks the ufw status with numbers on the left of each rule.
 sudo ufw delete <number> - Deletes the rule that corresponds to that number.
 
 SSH
 command -v ssh - To check if ssh is installed.
-sudo service ssh status - Checks the status of the ssh.
+sudo service ssh status - Checks the status of the ssh. (sudo systemctl status ssh)
+sudo service restart ssh - Restart SSH
 sudo nano /etc/ssh/ssh_config - To check the port used by ssh.
+sudo vim /etc/ssh/sshd_config - To change ports used by ssh. (use grep to see only ports)
 ip a - To check the IP to use for connect from the host terminal.
-ssh <vmusername>@<vmip> -p 4242 - (In the host terminal) to connect to the VM using ssh.
+ssh <vmusername>@127.0.0.1 -p 4242 - (In the host terminal) to connect to the VM using ssh.
 
 SCRIPT MONITORING
 sudo crontab -e - To edit the crontab file.
@@ -45,7 +63,10 @@ sudo nano /usr/local/bin/monitoring.sh - To edit the monitoring.sh file
 
 OTHER
 cut -d: -f1 /etc/passwd - Checks all the users in the machine.
-
+dpkg -l - List the packages (grep x, find x in packages) 
 groups - Checks which groups my user belongs to.
 /usr/sbin/aa-status - Checks the status of AppArmor.
 ss -tulp - Shows the net status, ports...
+
+LINKS
+https://rphlr.github.io/42-Evals/ - Evaluation page
